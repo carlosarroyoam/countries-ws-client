@@ -1,6 +1,6 @@
-package com.carlosarroyoam.countries.ws.client.countries;
+package com.carlosarroyoam.ws.client.countries;
 
-import com.carlosarroyoam.countries.ws.client.wsdl.GetCountryResponse;
+import com.carlosarroyoam.ws.client.wsdl.GetCountryResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

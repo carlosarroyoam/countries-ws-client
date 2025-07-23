@@ -66,7 +66,7 @@
           </execution>
         </executions>
         <configuration>
-          <packageName>com.carlosarroyoam.countries.ws.client.wsdl</packageName>
+          <packageName>com.carlosarroyoam.ws.client.wsdl</packageName>
           <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
           <wsdlFiles>
             <wsdlFile>countries.wsdl</wsdlFile>

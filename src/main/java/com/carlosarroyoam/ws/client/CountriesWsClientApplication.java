@@ -1,4 +1,4 @@
-package com.carlosarroyoam.countries.ws.client;
+package com.carlosarroyoam.ws.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
