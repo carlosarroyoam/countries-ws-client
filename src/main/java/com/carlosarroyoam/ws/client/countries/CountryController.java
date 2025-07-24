@@ -1,6 +1,8 @@
 package com.carlosarroyoam.ws.client.countries;
 
-import com.carlosarroyoam.ws.client.wsdl.GetCountryResponse;
+import com.carlosarroyoam.ws.client.countries.dto.CountryDto;
+import com.carlosarroyoam.ws.client.countries.dto.CountryDto.CountryDtoMapper;
+import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +16,12 @@ public class CountryController {
 
   public CountryController(CountryClient countryClient) {
     this.countryClient = countryClient;
+  }
+
+  @GetMapping(produces = "application/json")
+  public ResponseEntity<List<CountryDto>> findAll() {
+    List<CountryDto> countries = CountryDtoMapper.INSTANCE.toDtos(countryClient.findAll());
+    return ResponseEntity.ok(countries);
   }
 
   @GetMapping(path = "/{countryName}", produces = "application/json")
