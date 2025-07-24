@@ -15,7 +15,14 @@ public class CountryClient extends WebServiceGatewaySupport {
     GetCountryRequest request = new GetCountryRequest();
     request.setName(country);
 
-    return (GetCountryResponse) getWebServiceTemplate().marshalSendAndReceive(request,
-        new SoapActionCallback("http://carlosarroyoam.com/ws/countries/GetCountryRequest"));
+    GetCountryResponse response = (GetCountryResponse) getWebServiceTemplate()
+        .marshalSendAndReceive(request,
+            new SoapActionCallback("http://carlosarroyoam.com/ws/countries/GetCountryRequest"));
+
+    if (response.getCountry() == null) {
+      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Country does not exists");
+    }
+
+    return response;
   }
 }

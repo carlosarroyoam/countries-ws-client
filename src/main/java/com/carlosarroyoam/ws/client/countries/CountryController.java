@@ -17,8 +17,8 @@ public class CountryController {
   }
 
   @GetMapping(path = "/{countryName}", produces = "application/json")
-  public ResponseEntity<GetCountryResponse> findById(@PathVariable String countryName) {
-    GetCountryResponse response = countryClient.findByName(countryName);
+  public ResponseEntity<CountryDto> findById(@PathVariable String countryName) {
+    CountryDto response = CountryDtoMapper.INSTANCE.toDto(countryClient.findByName(countryName));
     return ResponseEntity.ok(response);
   }
 }
