@@ -26,12 +26,12 @@ public class CountryDto {
     CountryDtoMapper INSTANCE = Mappers.getMapper(CountryDtoMapper.class);
 
     @Mapping(target = ".", source = "response.country")
-    CountryDto toDto(GetCountryResponse response);
+    CountryDto responseToDto(GetCountryResponse response);
 
-    List<CountryDto> toDtoList(List<Country> countries);
+    List<CountryDto> toDtos(List<Country> countries);
 
-    default List<CountryDto> toDtos(GetCountriesResponse response) {
-      return toDtoList(response.getCountries());
+    default List<CountryDto> responseToDtos(GetCountriesResponse response) {
+      return toDtos(response.getCountries());
     }
   }
 }

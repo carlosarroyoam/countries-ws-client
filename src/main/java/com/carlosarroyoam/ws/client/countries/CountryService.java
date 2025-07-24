@@ -21,7 +21,7 @@ public class CountryService {
   }
 
   public List<CountryDto> findAll() {
-    return CountryDtoMapper.INSTANCE.toDtos(countryClient.findAll());
+    return CountryDtoMapper.INSTANCE.responseToDtos(countryClient.findAll());
   }
 
   public CountryDto findByName(String countryName) {
@@ -35,6 +35,6 @@ public class CountryService {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Country does not exists");
     }
 
-    return CountryDtoMapper.INSTANCE.toDto(response);
+    return CountryDtoMapper.INSTANCE.responseToDto(response);
   }
 }
