@@ -13,7 +13,7 @@ public class CountryClientConfig {
 
   @Bean
   Jaxb2Marshaller marshaller() {
-    // this package must match the package in the <generatePackage> specified in
+    // ContextPath must match the package in the <generatePackage> specified in
     // pom.xml
     Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
     marshaller.setContextPath("com.carlosarroyoam.ws.client.wsdl");

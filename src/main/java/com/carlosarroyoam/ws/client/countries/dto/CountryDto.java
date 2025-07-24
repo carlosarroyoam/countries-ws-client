@@ -1,5 +1,7 @@
 package com.carlosarroyoam.ws.client.countries.dto;
 
+import com.carlosarroyoam.ws.client.wsdl.Country;
+import com.carlosarroyoam.ws.client.wsdl.GetCountriesResponse;
 import com.carlosarroyoam.ws.client.wsdl.GetCountryResponse;
 import java.util.List;
 import lombok.Builder;
@@ -13,8 +15,9 @@ import org.mapstruct.factory.Mappers;
 @Data
 @Builder
 public class CountryDto {
+  private Integer id;
   private String name;
-  private int population;
+  private Integer population;
   private String capital;
   private String currency;
 
@@ -25,7 +28,10 @@ public class CountryDto {
     @Mapping(target = ".", source = "response.country")
     CountryDto toDto(GetCountryResponse response);
 
-    @Mapping(target = ".", source = "response.country")
-    List<CountryDto> toDtos(List<GetCountryResponse> response);
+    List<CountryDto> toDtoList(List<Country> countries);
+
+    default List<CountryDto> toDtos(GetCountriesResponse response) {
+      return toDtoList(response.getCountries());
+    }
   }
 }

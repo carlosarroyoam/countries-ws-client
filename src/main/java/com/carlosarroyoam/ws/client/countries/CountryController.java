@@ -1,7 +1,6 @@
 package com.carlosarroyoam.ws.client.countries;
 
 import com.carlosarroyoam.ws.client.countries.dto.CountryDto;
-import com.carlosarroyoam.ws.client.countries.dto.CountryDto.CountryDtoMapper;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,21 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/countries")
 public class CountryController {
-  private final CountryClient countryClient;
+  private final CountryService countryService;
 
-  public CountryController(CountryClient countryClient) {
-    this.countryClient = countryClient;
+  public CountryController(CountryService countryService) {
+    this.countryService = countryService;
   }
 
   @GetMapping(produces = "application/json")
   public ResponseEntity<List<CountryDto>> findAll() {
-    List<CountryDto> countries = CountryDtoMapper.INSTANCE.toDtos(countryClient.findAll());
-    return ResponseEntity.ok(countries);
+    return ResponseEntity.ok(countryService.findAll());
   }
 
   @GetMapping(path = "/{countryName}", produces = "application/json")
   public ResponseEntity<CountryDto> findById(@PathVariable String countryName) {
-    CountryDto response = CountryDtoMapper.INSTANCE.toDto(countryClient.findByName(countryName));
-    return ResponseEntity.ok(response);
+    return ResponseEntity.ok(countryService.findByName(countryName));
   }
 }
