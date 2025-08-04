@@ -1,6 +1,6 @@
-package com.carlosarroyoam.ws.client.exception;
+package com.carlosarroyoam.ws.client.core.exception;
 
-import com.carlosarroyoam.ws.client.exception.dto.AppExceptionDto;
+import com.carlosarroyoam.ws.client.core.exception.dto.AppExceptionDto;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.stream.Collectors;

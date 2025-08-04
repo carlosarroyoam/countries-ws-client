@@ -1,4 +1,4 @@
-package com.carlosarroyoam.ws.client.config;
+package com.carlosarroyoam.ws.client.core.config;
 
 import com.carlosarroyoam.ws.client.countries.CountryClient;
 import org.springframework.beans.factory.annotation.Value;

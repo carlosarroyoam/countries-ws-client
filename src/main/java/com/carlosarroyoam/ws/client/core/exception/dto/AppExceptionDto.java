@@ -1,4 +1,4 @@
-package com.carlosarroyoam.ws.client.exception.dto;
+package com.carlosarroyoam.ws.client.core.exception.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
