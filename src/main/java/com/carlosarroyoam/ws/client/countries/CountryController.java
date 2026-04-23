@@ -19,11 +19,13 @@ public class CountryController {
 
   @GetMapping(produces = "application/json")
   public ResponseEntity<List<CountryDto>> findAll() {
-    return ResponseEntity.ok(countryService.findAll());
+    List<CountryDto> countries = countryService.findAll();
+    return ResponseEntity.ok(countries);
   }
 
   @GetMapping(path = "/{countryName}", produces = "application/json")
   public ResponseEntity<CountryDto> findById(@PathVariable String countryName) {
-    return ResponseEntity.ok(countryService.findByName(countryName));
+    CountryDto countryByName = countryService.findByName(countryName);
+    return ResponseEntity.ok(countryByName);
   }
 }
