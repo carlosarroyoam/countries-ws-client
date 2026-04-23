@@ -6,6 +6,5 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CountriesWsClientApplicationTests {
   @Test
-  void contextLoads() {
-  }
+  void contextLoads() {}
 }

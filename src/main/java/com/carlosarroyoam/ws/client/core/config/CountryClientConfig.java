@@ -8,7 +8,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
 public class CountryClientConfig {
-  @Value("${app.ws.countries.uri}")
+  @Value("${application.ws.countries.uri}")
   private String countriesWsUri;
 
   @Bean

@@ -15,15 +15,21 @@ public class CountryClient extends WebServiceGatewaySupport {
   public GetCountriesResponse findAll() {
     log.info("Requesting all countries");
 
-    return (GetCountriesResponse) getWebServiceTemplate().marshalSendAndReceive(
-        new GetCountriesRequest(),
-        new SoapActionCallback("http://carlosarroyoam.com/ws/countries/GetCountriesRequest"));
+    return (GetCountriesResponse)
+        getWebServiceTemplate()
+            .marshalSendAndReceive(
+                new GetCountriesRequest(),
+                new SoapActionCallback(
+                    "http://carlosarroyoam.com/ws/countries/GetCountriesRequest"));
   }
 
   public GetCountryResponse findByName(GetCountryRequest request) {
     log.info("Requesting location for: {}", request.getName());
 
-    return (GetCountryResponse) getWebServiceTemplate().marshalSendAndReceive(request,
-        new SoapActionCallback("http://carlosarroyoam.com/ws/countries/GetCountryRequest"));
+    return (GetCountryResponse)
+        getWebServiceTemplate()
+            .marshalSendAndReceive(
+                request,
+                new SoapActionCallback("http://carlosarroyoam.com/ws/countries/GetCountryRequest"));
   }
 }
